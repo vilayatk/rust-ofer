@@ -1,16 +1,16 @@
 // Immutables and Scoping
-fn main()
-{
+fn main() {
     let x: i32 = 5;
     let x: i32 = x + 1;
 
     {
+        println!("Global declaration from outer scope: {}", x);
+
         let x: i32 = (x * 2).into();
         println!("Inner scope: {}", x);
 
         let x: f64 = (x * 2).into(); // WE changed the type here, and its allowed.
         println!("Inner scope redeclaration f64: {}", x);
-
     }
     // even though the value and type of x was changed in the above scope
     // the 'x' swtiches back to its state before the scope started, i32 and x + 1 = 6;
