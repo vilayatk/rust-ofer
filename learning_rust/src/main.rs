@@ -1,11 +1,30 @@
-// IMMUTABLES
+// Immutables and Scoping
 fn main()
 {
-    let _x: i32 = 10;
-    let _x: i32 = 20; // mutation is not allowed, but re-declaration is. prefix = _ needed
+    let x: i32 = 5;
+    let x: i32 = x + 1;
 
-    println!("{}", _x);
+    {
+        let x: i32 = (x * 2).into();
+        println!("Inner scope: {}", x);
+
+        let x: f64 = (x * 2).into(); // WE changed the type here, and its allowed.
+        println!("Inner scope redeclaration f64: {}", x);
+
+    }
+    // even though the value and type of x was changed in the above scope
+    // the 'x' swtiches back to its state before the scope started, i32 and x + 1 = 6;
+    println!("Outer scope: {}", x);
 }
+
+// IMMUTABLES
+// fn main()
+// {
+//     let _x: i32 = 10;
+//     let _x: i32 = 20; // mutation is not allowed, but re-declaration is. prefix = _ needed
+
+//     println!("{}", _x);
+// }
 
 // //CONSTANTS and variables
 // fn main() {
@@ -30,4 +49,3 @@ fn main()
 //     stdin().read_line(&mut str).expect("Error!");
 //     println!("Number: {}", str);
 // }
-
