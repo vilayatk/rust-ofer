@@ -1,17 +1,26 @@
-//CONSTANTS and variables
-fn main() {
-    const PI: f64 = 3.141; // constant
-    let x: i32 = 20; // immutable, is a variable
-                     // x = x + 1; // error
-    let mut is_true: bool = true; // mutable
-    is_true = is_true && x % 2 == 0; // Allowed, since mutable
+// IMMUTABLES
+fn main()
+{
+    let _x: i32 = 10;
+    let _x: i32 = 20; // mutation is not allowed, but re-declaration is. prefix = _ needed
 
-    if is_true {
-        println!("pi is {}", PI);
-    } else {
-        println!("x is {}", x)
-    }
+    println!("{}", _x);
 }
+
+// //CONSTANTS and variables
+// fn main() {
+//     const PI: f64 = 3.141; // constant
+//     let x: i32 = 20; // immutable, is a variable
+//                      // x = x + 1; // error
+//     let mut is_true: bool = true; // mutable
+//     is_true = is_true && x % 2 == 0; // Allowed, since mutable
+
+//     if is_true {
+//         println!("pi is {}", PI);
+//     } else {
+//         println!("x is {}", x)
+//     }
+// }
 
 //use std::io::stdin;
 
