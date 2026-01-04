@@ -1,4 +1,4 @@
+target/
 *.lock
 *.bin
-.vscode/*
-learning_rust/target/*
+.vscode/
