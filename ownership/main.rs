@@ -17,6 +17,8 @@ fn main() {
 
     borrow_and_return_object(&x);
     println!("X still exists after the call. Borrowed and returned back.");
+
+    mutability_and_references();
 }
 
 fn give_ownership() -> String {
@@ -41,3 +43,16 @@ fn borrow_and_return_object(x: &String) {
 //    let s = String::from("Hello!");
 //    &s
 //}
+
+fn mutability_and_references() {
+    let mut r = String::from("This is a var.");
+    r.push_str(". XYZ.");
+    let x = &r;
+    let y = &r;
+    // let z = &mut x; // NOT Ok
+    //x.push_str("Rasengan!");
+    println!("{x}\n {y}");
+    let z = &mut r; // OK. Because x and y are not used after this assignment
+    println!("{z}");
+    // You cannot mix mutable and immutable refernces. This is because rust prevents data races at compilation
+}
